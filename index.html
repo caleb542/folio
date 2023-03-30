@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Fira+Mono&family=JetBrains+Mono:wght@100;300;400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;600;800;900&family=Open+Sans:wght@300;400;500;700&family=Poppins:ital,wght@0,300;0,400;1,500&family=Red+Hat+Mono:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="portfolio.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Caleb - Portfolio</title>
+</head>
+
+<!-- <body class="light"> -->
+<body>
+        <input type="checkbox" class="lightDark" />
+        
+        <div class="sunMoon">
+            <div class="moon"></div>
+            <div class="sun"></div> 
+        </div>    
+
+        <div class="container" dir="ltr"> 
+            <ul class="socialLinks">
+                <li>
+                    <a href="#">
+                        <i class="fa-brands fa-github fa-fw"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin fa-fw"></i>
+                    </a>
+                </li>
+            </ul>    
+            <div class="email"><a href="mailto:caleb542@gmail.com">caleb542@gmail.com</a></div>
+            
+            <header>
+                
+                <nav>
+                    <div class="logo">
+                      
+                        <strong>
+                            <a href="#">HOME</a>
+                        </strong>
+                      
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#about">
+                                About
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="#experience">
+                                Experience
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a href="#projects">
+                                Projects
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                Contact
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+            <main>
+               
+             <div class="content">
+                <section class="intro">
+                    <p class="pre">Hi,&nbsp;my name is</p>
+                    <h1 class="colo">Caleb Hamilton.</h1>
+                    <p class="subtitle">I transform design into awesome websites</p>
+               
+                        <p class="colo statement">I’m a front end developer specializing in building semantic websites, components, and digital experiences. Currently, I’m focused on building accessible and semantic web applications.</p>
+        
+                        <a class="toProjects" href="#projects">View my projects</a>
+                    </section>    
+                        
+                    
+                    
+          
+            <section id="about">
+                <h2><span>01.</span><span>About</span></h2>
+              
+                <div>
+                    <div>
+                        <p>I’m a front end developer with over 10 years' experience building responsive and accessible websites. Some of my top skills are Semantic HTML, writing Responsive CSS and SASS, Javascript, Frameworks, Velocity and Freemarker, managing complex CMS patterns, creating React Apps. I've ten years experience developing and managing enterprise sites running atop Liferay CMS.</p> 
+                    </div>
+                  <img src="./images/bluegrey.png" width="300px" 
+                   alt="Portrait">
+                </div>
+                
+               
+             
+            </section>
+            <section id="projects" class="projects">
+                <h2>Projects</h2>
+                <div class="inner_container">
+                    <article class="project">
+                        <h3>Recipe-me</h3>
+                        <img src="images/bluegrey.jpg" alt="Recipe app">
+                    </p>
+                        <p>A serverless application where anyone can document their recipes. 
+                        <ul>
+                            <li>Search for a stock image by keyword (Unsplash API)</li>
+                            <li>Uses DBaaS and BaaS (MongoDb Atlas API)</li>
+                            <li>Host anywhere (go serverless, host on Surge or Netlify)</li>
+                        </ul>
+                       
+                        <a class="cta" href="https://recipe-me.calebhamilton.com" target="blank">View the app</a>
+                    </article>
+                    <article class="project">
+                        <h3>Bruze Inc.</h3>
+                        <p>A business landing page built on Liferay 7</p>
+                        <a class="cta" href="https://www.bruze.com" target="self">Visit bruze.com</a>
+                    </article>
+                    <article class="project">
+                        <h3>Pac</h3>
+                        <p>A familiar sprite animation that you can control.</p>
+                        <a class="cta" href="https://pac.calebhamilton.com" target="self">Watch Pac go</a>
+    
+                    </article>
+                    <article>
+                        <h3>Hangman</h3>
+                        <p>Disclaimer: I didn't create the original game, it was a course project created by Andrew Meade.</p>
+                        <p>When I started playing it I realized the usability was poor on mobile devices so I added a keyboard & crossed out letters that had already been selected.</br>
+                        <a class="cta" href="https://hangman.calebhamilton.com" target="self">Play the game</a>
+                    </article>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; 2020 Caleb Hamilton</p>
+            </footer>
+        <!-- </div>     -->
+
+    </div>
+
+    <script>
+           let firstTime = {
+                firstTimeHere: false
+            }
+        const firstTimeCheck = () => {
+            let firstTime = {
+                firstTimeHere: false
+            }
+            document.localStorage.setItem("firstTime", false)
+        }
+    </script>
+</body>
+
+</html>
