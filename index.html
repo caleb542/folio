@@ -240,14 +240,21 @@
                             <label for="role">
                               Your Role:</label> 
                             <select name="role[]" multiple>
-                                <option value="leader">Owner / Operator</option>
-                              <option value="leader">Hiring manager</option>
-                              <option value="follower">Recruiter</option>
+                                <option value="Owner / Operator">Owner / Operator</option>
+                              <option value="hiring manager">Hiring manager</option>
+                              <option value="recruiter">Recruiter</option>
                   
-                              <option value="follower">Other</option>
+                              <option value="other">Other</option>
 
                             </select>
-                         
+                            <label>Upload a file</label>
+                            <label class="fileUpload" for="file">
+                                <input id="file" name="file" type="file" />
+                            </label>
+                            <div class="field">
+                                <div data-netlify-recaptcha="true">
+                                </div>
+                            </div>
                             <label for=""message>Message:</label>
                             <textarea name="message"></textarea>
                         </div>

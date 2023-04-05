@@ -859,7 +859,34 @@ label.sliderButton:after {
 .nav-toggle {
     display: none;
 }
+input[type="file"]{
+    display:none;
+    
+}
 
+.fileUpload{
+    background-color:rgb(50 55 97);
+    color:#fff;
+    height:auto;
+    overflow-y:hidden;
+    padding:0.5rem 1.5rem;
+    height:1.5rem;
+    position:relative;
+}
+.fileUpload::after{
+    content:'Click to Upload a file';
+    border:1px solid #fff;
+    padding:0.5rem;
+    text-align:center;
+    position:absolute;
+    height:auto;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+}
+.fileUpload:hover{
+    cursor:pointer;
+}
 .submit {
     color:#fff;
     background:steelblue;
