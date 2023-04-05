@@ -860,7 +860,11 @@ label.sliderButton:after {
     display: none;
 }
 input[type="file"]{
-    display:none;
+    opacity:1;
+    padding-left:56px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
     
 }
 
@@ -875,6 +879,7 @@ input[type="file"]{
 }
 .fileUpload::after{
     content:'Click to Upload a file';
+    background-color:rgb(50 55 97);
     border:1px solid #fff;
     padding:0.5rem;
     text-align:center;
