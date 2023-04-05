@@ -44,15 +44,17 @@ body{
     font-family:'Open Sans';
     margin:0;
     padding:0;
-    
+}
+body {
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
 }
 header {
     transition: background-color 0.4s;
     backdrop-filter: blur(10px);
 }
-.container {
-    transition:all 0.4s;
-}
+
 .toProjects {
     text-decoration:none;
     color:var(--green);
@@ -67,9 +69,11 @@ h1 {
     font-weight:700;
     line-height:1.5;
 }
-#about {
+
+section {
     padding-top:4.5rem;
 }
+
 #projects{
     padding-top:4.5rem;
 }
@@ -112,7 +116,7 @@ h2 {
     gap:0.5rem;
 
 }
-h2 span:nth-child(1){
+/* h2 span:nth-child(1){
     font-family:var(--mono);
     display:inline-block;
     color:var(--green);
@@ -125,7 +129,7 @@ h2 span + span{
    color:var(--theme-name);
    display: inline-block;
 
-}
+} */
 
 a {
     color:var(--green);
@@ -197,17 +201,24 @@ nav a{
 nav span {
     color:red;
 }
-.contact ul {
+footer {
+    border-top:1px solid var(--green);
+    display:flex;
+    gap:2rem;
+    align-items: center;
+    justify-content: center;
+}
+footer ul {
    
     list-style:none;
     padding:0;
     margin:0;
-    padding:2rem 0;
+    padding:0;
     display:flex;
-    flex-direction:column;
-    justify-content:space-around;
+    gap:2rem;
 }
-.contact li {
+footer li {
+    display: inline-block;
     list-style:none;
     padding:0;
     margin:0;
@@ -250,14 +261,14 @@ form {
     width: 100%;
     display:flex;
     flex-direction:column;
-    gap:10rem;
+    gap:3rem;
     height: auto;
     min-height:100vh;
     margin:0;
     padding:0; 
     position:relative;
     z-index:0;
-    transition:all 0.2s ease-in;
+    transition:all 0.4s;
 }
 .lightDark:checked,
 .lightDark:checked ~ .container :is(.logo,  .toProjects) {
