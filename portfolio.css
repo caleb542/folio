@@ -38,6 +38,7 @@
     padding:0;
 }
 body,html{
+    overflow-x:hidden;
     scroll-behavior: smooth;
     /* transition:scroll-behavior 1s; */
 }
