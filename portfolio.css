@@ -13,6 +13,8 @@
     --moon:url(./images/moon-icon-yell.svg) no-repeat 0 0;
     --header-bg:rgb(10 25 47 / 90%);
     --light-navy:#112240;
+    --light-slate:#a8b2d1;
+    --lightest-slate:#ccd6f6;
 }
 :has(.lightDark:checked)  {
     --dark:#fff;
@@ -70,24 +72,38 @@ p {
 }
 h1 {
     color:var(--theme-name);
-    font-weight:700;
-    line-height:1.5;
+    font-weight:600;
+    line-height:1.1;
+
+    font-size:clamp(1.5rem, 8vw, 4rem);
+    margin:0;
+}
+.subtitle {
+    font-size:clamp(1.5rem, 8vw, 4rem);
+    line-height:1;
+    margin:0;
+    margin-bottom:1.5rem;
+    font-weight:600;
 }
 
 section {
     padding-top:4.5rem;
 }
 
-#projects{
-    padding-top:4.5rem;
-}
 .logo{
     box-sizing: border-box;
     position:relative;
     z-index:2;
     color:var(--dark);
 }
-
+.hangman{
+    scale:50%;
+}
+.fas {
+    position: absolute;
+    right:1rem;
+    top:1rem;
+}
 
 .logo   {
 background:var(--green);
@@ -111,7 +127,7 @@ color:var(--dark);
 
 h2 {
     font-size: 1.75rem;
-    font-weight:400;
+    font-weight:600;
     width:auto;
     display:inline-block;
     color:var(--theme-name);
@@ -302,14 +318,9 @@ header{
     font-family: var(--mono);
     color:var(--green);
     font-weight:normal;
-    font-size:1rem;
+    font-size:1.5rem;
 }
-h1{
-    display: block;
-    line-height:1.5;
-    font-weight: 600;
-    font-size:4rem;
-}
+
 
 .lightDark{
     display: block;
@@ -513,15 +524,7 @@ input:is(:checked) ~ .container{
     max-width:560px;
     line-height:1.5;
 }
-.subtitle {
-    font-size:4rem;
-    line-height:normal;
-    margin:0;
-    font-weight:600;
-}
 
-.subtitle{
-text-shdow:none;}
 .toProjects{
     display: block;
     width: auto;
@@ -575,11 +578,7 @@ section.intro {
     gap: 1rem;
     align-items: start;
 }
-section.intro :is(h1,.pre,.subtitle) {
-    margin:0 !important;
-    line-height:1.1 !important;
 
-}
 p.statement {
     padding:1rem 0;
     line-height:1.5rem;
@@ -801,31 +800,67 @@ label.sliderButton:after {
 	content: ">";
 
 }
+:is(.projects,.contact,.about,.experience) {
+    display: grid;
+    gap:1rem;
+}
+.projects {
+    padding-top:4.5rem;
+}
+.projects .inner-container {
+    display:grid;
+    gap:1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 .project {
     box-sizing: border-box;
     border-radius:0.5rem;
-    padding:1rem 2rem 2rem 2rem;
-    background-color: transparent;
+    padding:0rem 0rem 0rem 0rem;
+    background-color: var(--light-navy);
     display: flex;
     flex-direction:column;
     gap:1rem;
-    margin-bottom:2rem;
-    box-shadow:inset 0px 0px 0px 6px var(--green);
-
+    position: relative;
+    overflow:hidden;
 }
+.project a {
+    color:unset;
+    display:block;
+}
+.project div{
+    padding:2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
 .project h3 {
-    font-size:1.75rem;
-    color:var(--green);
-    line-height: 0;
+    font-size:1.25rem;
+    font-weight:500;
+    color:var(--lightest-slate);
+    line-height: 1.1;
 }
 
-/* .project:nth-of-type(odd) {
-    transform: rotate(-2deg) skew(2deg, 2deg);
+.project p {
+    line-height:1.5;
+    color:var(--light-slate);
+    font-size:1rem;
 }
-.project:nth-of-type(even) {
-    transform: rotate(2deg) skew(-2deg, -2deg) perspective(1rem);
-} */
+.project .features {
+    padding:0;
+    margin:0;
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    column-gap:2rem;
+}
+.features li {
+    
+    font-weight: 200;
+    font-size:0.875rem;
+}
 @media (min-width:769px) and (max-width:1300px){
     .container {
         padding:0rem;
@@ -841,12 +876,7 @@ label.sliderButton:after {
         max-width:calc(100% - 8rem);
 
     }
-    h1{
-        font-size:4rem;
-    }
-    .subtitle {
-        font-size:2rem;
-    }
+
     .email {display:none;}
     .socialLinks{
         flex-direction: row;
@@ -877,7 +907,9 @@ label.sliderButton:after {
         justify-content: flex-start;
         gap: 5rem;
     }
-
+    .projects .inner-container{
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 .toggle-label,
@@ -948,12 +980,7 @@ input[type="file"]{
         max-width:calc(100% - 4rem);
 
     }
-    h1{
-        font-size:4rem;
-    }
-    .subtitle {
-        font-size:2rem;
-    }
+
     .email {display:none;}
     .socialLinks{
         flex-direction: row;
@@ -1139,5 +1166,7 @@ input[type="file"]{
     #about > div{
         display:grid;
     }
-
+    .projects .inner-container {
+        grid-template-columns: 1fr;;
+    }
 }
