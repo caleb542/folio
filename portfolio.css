@@ -12,7 +12,7 @@
     --sun:url(./images/sun-icon-yell.svg) no-repeat 0 0;
     --moon:url(./images/moon-icon-yell.svg) no-repeat 0 0;
     --header-bg:rgb(10 25 47 / 90%);
-
+    --light-navy:#112240;
 }
 :has(.lightDark:checked)  {
     --dark:#fff;
@@ -33,7 +33,10 @@
     --header-thin:rgb(255 255 255 / 100%);
 
 }
-
+* {
+    margin:0;
+    padding:0;
+}
 body,html{
     scroll-behavior: smooth;
     /* transition:scroll-behavior 1s; */
