@@ -219,11 +219,14 @@ nav span {
     color:red;
 }
 footer {
-    border-top:1px solid var(--green);
+    padding: 2rem 0 0 0;
+    border-top:2px solid  rgb(30 30 65);
     display:flex;
     gap:2rem;
     align-items: center;
     justify-content: center;
+    position: relative;
+    bottom:0;
 }
 footer ul {
    
@@ -568,6 +571,7 @@ main {
     position:relative;
     width:980px;
     margin:0 auto;
+    margin-bottom:80px;
 }
 section.intro {
     display: flex;
@@ -904,10 +908,10 @@ p span {
     
 }
 .skills-badges li {
-    padding:0.4rem 0.8rem;
+    padding:0.4rem 1.8rem;
 
     font-size:0.875rem;
-    border-radius:12px;
+    border-radius:5px;
   
     border:1px solid var(--theme-color);
 }
@@ -1027,8 +1031,8 @@ input[type="file"]{
     cursor:pointer;
 }
 .submit {
-    color:#fff;
-    background:steelblue;
+    color:var(--dark);
+    background-color: var(--green);
     padding:0.5rem 1.5rem;
     font-size:1.11rem;
     border:none;
@@ -1036,11 +1040,13 @@ input[type="file"]{
     width:auto;
     max-width:200px;
     display:inline-block;
-
+    border:1px solid var(--dark)
 }
 .submit:hover{
     cursor:pointer;
-    background-color: blueviolet    
+    background-color: var(--dark);
+    color:var(--green); 
+    border:1px solid var(--green);
 }
 @media (max-width:768px){
     .container {
@@ -1057,7 +1063,10 @@ input[type="file"]{
         max-width:calc(100% - 4rem);
 
     }
-
+    #about .imageContainer {
+        margin:0 auto;
+        margin-bottom:2rem;
+    }
     .email {display:none;}
     .socialLinks{
         flex-direction: row;
@@ -1115,7 +1124,7 @@ input[type="file"]{
     }
     .toggle-label .hamburger{
         position: absolute;
-        display:flex;
+        display:flex; 
         flex-direction: column;
         gap:9px;
         height:26px;
@@ -1126,12 +1135,12 @@ input[type="file"]{
         
     }
     .hamburger div {
-        background:yellow;
+        background:var(--green);;
         display: block;
         width:30px;
         height:2px;
 
-        transition:all 0.2s;
+        transition:all 0.9s;
     }
     .nav-toggle:checked ~ .hamburger div:first-child {
         transform: rotate(45deg) translateX(19%);
@@ -1139,7 +1148,7 @@ input[type="file"]{
     }
     .nav-toggle:checked ~ .hamburger div:last-child {
         transform: translateX(0%) rotate(-45deg);
-        background:yellow;
+        background:#ff0000;
         transform-origin: 50%;
     }
 
