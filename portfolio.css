@@ -99,11 +99,7 @@ section {
 .hangman{
     scale:50%;
 }
-.fas {
-    position: absolute;
-    right:1rem;
-    top:1rem;
-}
+
 
 .logo   {
 background:var(--green);
@@ -134,6 +130,7 @@ h2 {
     display:flex;
     align-items: center;
     gap:0.5rem;
+    margin-bottom:2rem;
 
 }
 /* h2 span:nth-child(1){
@@ -660,7 +657,6 @@ p.statement {
     left:0px;
     top:75px;
     transform:rotate(10deg);
-
     transform-origin: 0 0;
 }
 .body::after{
@@ -816,24 +812,40 @@ label.sliderButton:after {
 .project {
     box-sizing: border-box;
     border-radius:0.5rem;
-    padding:0rem 0rem 0rem 0rem;
     background-color: var(--light-navy);
     display: flex;
-    flex-direction:column;
-    gap:1rem;
-    position: relative;
+    height:auto;
+    width: 100%;
     overflow:hidden;
+    transition:all 0.1s linear;
+     padding:2rem;
 }
+
 .project a {
     color:unset;
-    display:block;
-}
-.project div{
-    padding:2rem;
+    display:flex;
+    flex-direction:column;
     position: relative;
+    height: 100%;
+    overflow:hidden;
+    min-height: 160px;
+    align-items: baseline;
+    
+}
+.project:hover{
+    transform:translateY(-5px);
+}
+.project .flex div {
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+}
+.project div.flex{
+    
     display: flex;
+    height:inherit;
     flex-direction: column;
-    gap:1rem;
+    justify-content: space-between;
 }
 
 .project h3 {
@@ -852,14 +864,79 @@ label.sliderButton:after {
     padding:0;
     margin:0;
     list-style:none;
+    height: auto;
     display:flex;
     flex-wrap:wrap;
     column-gap:2rem;
+    width: 100%;
+}
+.project .fas {
+    position: absolute;
+    right:0rem;
+    top:0rem;
 }
 .features li {
-    
     font-weight: 200;
     font-size:0.875rem;
+    bottom:0;
+}
+p span {
+    color:var(--theme-name);
+}
+.skills-badges {
+    display:flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap:2rem;
+}
+.skills-badges ul{
+    display:flex;
+    margin:0 0 0 0;
+    flex-wrap:wrap;  
+    gap:0.8rem;
+    row-gap:1rem;
+    align-items:center;
+    justify-content: left;
+}
+.skills-badges li {
+    margin:0;
+    list-style:none;
+    
+}
+.skills-badges li {
+    padding:0.4rem 0.8rem;
+
+    font-size:0.875rem;
+    border-radius:12px;
+  
+    border:1px solid var(--theme-color);
+}
+.skills-badges h4{
+    display: inline;
+    width:auto;
+    position: relative;
+    transform: translate(2.5rem, 1rem);
+
+}
+.skills-badges h4::before{
+    content:'';
+    top:50%;
+    left:-40px;
+    position: absolute;
+    width:20px;
+    height:1px;
+    background-color: var(--theme-color);
+
+}
+.skills-badges h4::after{
+    content:'';
+    top:50%;
+    right:-40px;
+    position: absolute;
+    width:20px;
+    height:1px;
+    background-color: var(--theme-color);
+
 }
 @media (min-width:769px) and (max-width:1300px){
     .container {
@@ -1167,6 +1244,6 @@ input[type="file"]{
         display:grid;
     }
     .projects .inner-container {
-        grid-template-columns: 1fr;;
+        grid-template-columns: 1fr;
     }
 }
