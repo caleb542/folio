@@ -15,23 +15,32 @@
     --light-navy:#112240;
     --light-slate:#a8b2d1;
     --lightest-slate:#ccd6f6;
+    --project-bg: var(--light-navy);
+    --project-shadow:none;
+    --project-text1:#ccd6f6;
 }
 :has(.lightDark:checked)  {
     --dark:#fff;
     --light: #fff;
     --theme-color:#222;
     --theme-name:#333;
-    --green:rgb(0 122 0 / 100%);
+    --green:rgb(69, 126, 109);
     --green-thin:rgb(100 255 218 / 10%);  
     --header-thin:rgb(255 255 255 / 100%);
     --header-bg:rgb(255 255 255 / 90%);
+   
+    
+    --project-bg: rgb(255,255,255) !important;
+    --project-shadow:0 0 12px 0px #cacaca55;
+    --project-text1:rgb(10, 25,47);
 }
 :has(.darkLight:checked) {
     --light: #fff;
     --theme-color:purple;
     --theme-name:#green;
-    --green:white
+    --green:white;
     --green-thin:rgb(100 255 218 / 10%);  
+
     --header-thin:rgb(255 255 255 / 100%);
 
 }
@@ -243,6 +252,12 @@ footer li {
     padding:0;
     margin:0;
 }
+footer li a{
+    color:var(--lightest-slate)
+}
+footer li a:hover{
+    color:var(--green)
+}
 form div {
     display:grid;
     width:100%;
@@ -255,7 +270,7 @@ form :is(textarea,input[type="email"],input[type="text"]){
     padding:1rem;
     border-radius:4px;
     overflow:hidden;
-    color:#fff;
+    color:#abb9e1;
 }
 form textarea {
     min-height:120px;
@@ -269,7 +284,7 @@ form :is(select){
 form :is(option) {
     padding: 0.3rem 1rem;
     background-color:rgb(50 55 97);
-    color:#fff;
+    color:#abb9e1;
 }
 form {
     display: flex;
@@ -816,13 +831,14 @@ label.sliderButton:after {
 .project {
     box-sizing: border-box;
     border-radius:0.5rem;
-    background-color: var(--light-navy);
+    background-color: var(--project-bg);
     display: flex;
     height:auto;
     width: 100%;
     overflow:hidden;
     transition:all 0.1s linear;
-     padding:2rem;
+    padding:2rem;
+    box-shadow:var(--project-shadow);
 }
 
 .project a {
@@ -855,13 +871,13 @@ label.sliderButton:after {
 .project h3 {
     font-size:1.25rem;
     font-weight:500;
-    color:var(--lightest-slate);
+    color:var(--project-text1);
     line-height: 1.1;
 }
 
 .project p {
     line-height:1.5;
-    color:var(--light-slate);
+    color:var(--project-text1);
     font-size:1rem;
 }
 .project .features {
@@ -883,6 +899,7 @@ label.sliderButton:after {
     font-weight: 200;
     font-size:0.875rem;
     bottom:0;
+    color:var(--project-text1);
 }
 p span {
     color:var(--theme-name);
@@ -964,11 +981,13 @@ p span {
         height:auto;
         top:0;
         left:4rem;
+        display:none;
     }
     .content {
         gap:4rem;
     }
-    .socialLinks:before,.socialLinks:after{
+    .socialLinks:before,
+    .socialLinks:after{
         display:none;
     }
     header{
@@ -997,42 +1016,85 @@ p span {
 .nav-toggle {
     display: none;
 }
+form input, form textarea{
+    color:#abb9e1;
+}
 input[type="file"]{
     opacity:1;
     padding-left:56px;
     display:flex;
+    line-height:1.8rem;
     align-items: center;
     justify-content: space-between;
+    margin-left: 20px;
+    color: #abb9e1;
+    display: inline-block;
+    display: flex;
+    opacity: 1;
+    padding-left: 38px;
+    display: flex;
+    line-height: 1.8rem;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    letter-spacing: .5px;
     
+}
+input[type="file"]:focus-visible{
+    outline:1px transparent;
+    box-shadow:none;
 }
 
 .fileUpload{
     background-color:rgb(50 55 97);
-    color:#fff;
+    color:#8577f5;
     height:auto;
-    overflow-y:hidden;
-    padding:0.5rem 1.5rem;
+    overflow:hidden;
+    padding:0.5rem 0rem;
     height:1.5rem;
     position:relative;
+     cursor:pointer;
 }
 .fileUpload::after{
-    content:'Click to Upload a file';
-    background-color:rgb(50 55 97);
-    border:1px solid #fff;
-    padding:0.5rem;
-    text-align:center;
-    position:absolute;
-    height:auto;
-    top:50%;
-    left:0;
-    transform:translateY(-50%);
+  content: 'Upload a file';
+    background-color: rgb(50 55 97);
+    border: 1px solid #fff;
+    background-color: var(--lightest-slate);
+    border: 1px solid var(--dark);
+    /* box-shadow: 0 0 3px 3px inset rgb(50 55 97); */
+    padding: 0.5rem;
+    color: var(--dark);
+    text-align: center;
+    position: absolute;
+    height: 20px;
+    width: 104px;
+    border-right: 18px solid rgb(50 55 97);
+    top: 50%;
+    left: 0;
+    font-size: 15px;
+    transform: translateY(-50%);
+    padding: 0.8rem;
+    cursor:pointer;
+}
+.fileUpload:hover::after{
+    cursor:pointer;
+    background:#fff;
 }
 .fileUpload:hover{
     cursor:pointer;
 }
+label.fileUpload:focus-within {
+    outline: auto;
+}
+.fileUpload:focus-visible,
+.fileUpload:focus {
+    outline: none;
+}
 .submit {
     color:var(--dark);
-    background-color: var(--green);
+    background-color: var(--lightest-slate);
     padding:0.5rem 1.5rem;
     font-size:1.11rem;
     border:none;
@@ -1040,13 +1102,13 @@ input[type="file"]{
     width:auto;
     max-width:200px;
     display:inline-block;
-    border:1px solid var(--dark)
+    border:0px solid var(--dark)
 }
 .submit:hover{
     cursor:pointer;
-    background-color: var(--dark);
-    color:var(--green); 
-    border:1px solid var(--green);
+    color: var(--dark);
+    background-color:#fff; 
+    border:0px solid var(--lightest-slate); 
 }
 @media (max-width:768px){
     .container {
