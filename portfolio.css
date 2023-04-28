@@ -18,6 +18,10 @@
     --project-bg: var(--light-navy);
     --project-shadow:none;
     --project-text1:#ccd6f6;
+    --form-buttons-bg:#ccd6f6;
+    --form-buttons-txt:rgb(10 25 47);
+    --form-buttons-bg-hov:#fff;
+    --form-buttons-txt-hov:rgb(10 25 47);
 }
 :has(.lightDark:checked)  {
     --dark:#fff;
@@ -28,11 +32,13 @@
     --green-thin:rgb(100 255 218 / 10%);  
     --header-thin:rgb(255 255 255 / 100%);
     --header-bg:rgb(255 255 255 / 90%);
-   
-    
     --project-bg: rgb(255,255,255) !important;
     --project-shadow:0 0 12px 0px #cacaca55;
     --project-text1:rgb(10, 25,47);
+    --form-buttons-bg:#ccd6f6;
+    --form-buttons-txt:rgb(10 25 47);
+    --form-buttons-bg-hov:#00429a;
+    --form-buttons-txt-hov:#fff;
 }
 :has(.darkLight:checked) {
     --light: #fff;
@@ -104,6 +110,11 @@ section {
     position:relative;
     z-index:2;
     color:var(--dark);
+    padding:1rem;
+    border:5px solid #abcabc;
+    border-color:rgba(67, 126 109 / 10%);
+    border-radius:0.5rem 1rem;
+    filter:invert(1);
 }
 .hangman{
     scale:50%;
@@ -1028,6 +1039,7 @@ input[type="file"]{
     justify-content: space-between;
     margin-left: 20px;
     color: #abb9e1;
+    color:var(--form-buttons);
     display: inline-block;
     display: flex;
     opacity: 1;
@@ -1059,13 +1071,11 @@ input[type="file"]:focus-visible{
 }
 .fileUpload::after{
   content: 'Upload a file';
-    background-color: rgb(50 55 97);
     border: 1px solid #fff;
-    background-color: var(--lightest-slate);
-    border: 1px solid var(--dark);
+    background-color: var(--form-buttons-bg);
     /* box-shadow: 0 0 3px 3px inset rgb(50 55 97); */
     padding: 0.5rem;
-    color: var(--dark);
+    color: var(--form-buttons-txt);
     text-align: center;
     position: absolute;
     height: 20px;
@@ -1080,7 +1090,8 @@ input[type="file"]:focus-visible{
 }
 .fileUpload:hover::after{
     cursor:pointer;
-    background:#fff;
+    background:var(--form-buttons-bg-hov);
+    color:var(--form-buttons-txt-hov);
 }
 .fileUpload:hover{
     cursor:pointer;
@@ -1093,8 +1104,8 @@ label.fileUpload:focus-within {
     outline: none;
 }
 .submit {
-    color:var(--dark);
-    background-color: var(--lightest-slate);
+    color:var(--form-buttons-txt);
+    background-color: var(--form-buttons-bg);
     padding:0.5rem 1.5rem;
     font-size:1.11rem;
     border:none;
@@ -1102,13 +1113,13 @@ label.fileUpload:focus-within {
     width:auto;
     max-width:200px;
     display:inline-block;
-    border:0px solid var(--dark)
+    border:0px;
 }
 .submit:hover{
     cursor:pointer;
-    color: var(--dark);
-    background-color:#fff; 
-    border:0px solid var(--lightest-slate); 
+    color: var(--form-buttons-txt-hov); 
+    background-color:var(--form-buttons-bg-hov); 
+    border:0px solid var(--form-buttons-txt-hov); 
 }
 @media (max-width:768px){
     .container {
