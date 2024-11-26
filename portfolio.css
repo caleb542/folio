@@ -173,7 +173,7 @@ a {
     text-decoration:none;
     position:relative;
     display:inline;
-    line-height:24px;
+    /* line-height:24px; */
    
 }
 p a:after{
@@ -191,6 +191,25 @@ p a:after{
 a:hover:after,
 a:focus-visible:after{
     width:100%;
+}
+.skip-to-main {
+    display:inline-block;
+    position:absolute;
+    left:50%;
+    top:0;
+    margin:10px 0;
+    transform:translate(-50%, -130%);
+    opacity:0;
+    padding:10px 20px;
+    border:1px solid #fff;
+    border-radius: 5px;
+    transition: all .35s ease-out;
+}
+.skip-to-main:focus {
+    opacity:1;
+    transform:translate(-50%, 0%);
+    text-decoration:underline;
+    -moz-text-decoration-color: #64ffda;
 }
 nav {
     display: flex;
@@ -233,7 +252,7 @@ nav li:after{
 nav a{
     color:var(--theme-color);
     text-decoration:none;
-    line-height:1.25 !important;
+    /* line-height:1.25 !important; */
 }
 nav span {
     color:red;
@@ -323,6 +342,19 @@ form {
 }
 .lightDark:checked ~ .container :is( .container h1,.subtitle) {
     /* text-shadow:-5px 2px  1px  rgb(50 50 50 / 25%) */
+}
+.container:has(.lightDark:checked) .socialLinks a img{
+    filter:invert(1);
+    &:hover {
+        filter:invert(.3);
+        
+    }
+    &:focus-visible {
+        outline-color: #ccc;
+        outline-offset: 30px;;
+        filter:invert(.3);
+        
+    }
 }
 header{
     position: sticky;
@@ -519,11 +551,27 @@ input:is(:checked) ~ .container{
     gap:1.25rem;
     
 }
-.socialLinks a:hover i{
-    color:var(--green);
+
+.socialLinks a img{
+    transition: all 0.9s;
 }
-.socialLinks i{
-    color:var(--theme-name);
+
+.socialLinks a:hover img,
+.socialLinks a:focus-visible img{
+    fill:var(--theme-name);
+    filter:brightness(0.7);
+    box-shadow:0 0 10px 0 #fff;
+    border-radius:50%;
+
+  
+}
+.socialLinks a:hover img.linkedin,
+.socialLinks a:focus-visible img.linkedin{
+    border-radius:5px;
+
+}
+.socialLinks img{
+    fill:var(--theme-name);
 }
 
 .socialLinks:after {
