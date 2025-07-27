@@ -668,7 +668,19 @@ p.statement {
     filter: brightness(0.7);
     clear:none;
 }
+#about .imageContainer:focus-within{
+    box-shadow: 0 0 10px 0 #fff;
+    border-radius: 6px;
+    overflow: hidden;
 
+}
+#about .imageContainer:focus-within {
+    content:"Left and Right";
+    position:absolute;
+    color:red;
+    left:50%;
+    bottom:0;
+}
 #about > div p {
     columns:1;
 }
