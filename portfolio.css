@@ -1,7 +1,5 @@
 /* variables */
-* {
-    box-sizing:border-box;
-}
+
 :root{
 
     --dark: rgb(10, 25, 47) !important;
@@ -56,6 +54,7 @@
 * {
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 body,html{
     overflow-x:hidden;
@@ -1259,7 +1258,7 @@ label.fileUpload:focus-within {
     .toggle-label:hover{
         cursor:pointer;
     }
-    .toggle-label .hamburger{
+    .hamburger{
         position: absolute;
         display:flex; 
         flex-direction: column;
