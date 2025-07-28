@@ -29,6 +29,8 @@
        <header>
 
         <a href="#container" class="skip-to-main">Skip to main</a>
+            
+
             <label tab-index="0" class="toggle-label" for="toggle">
                 <input class="nav-toggle" id="toggle" type="checkbox" aria-label="Toggle light and dark" />
                 <div class="hamburger">
@@ -489,25 +491,13 @@
                     </li>
                 </ul>
             </footer>
-            <!-- </div>     -->
+          
 
     </div>
 
     <script>
-        //    let firstTime = {
-        //         firstTimeHere: false
-        //     }
-        // const firstTimeCheck = () => {
-        //     let firstTime = {
-        //         firstTimeHere: false
-        //     }
-        //     document.localStorage.setItem("firstTime", false)
-        // }
-        // firstTimeCheck()
-
         let date = new Date();
-       const year = date.getFullYear();
-
+        const year = date.getFullYear();
         const legal = document.getElementById('legal');
         legal.textContent = '\251 ' + `${year} Caleb Hamilton`
 
