@@ -1,4 +1,7 @@
 /* variables */
+* {
+    box-sizing:border-box;
+}
 :root{
 
     --dark: rgb(10, 25, 47) !important;
