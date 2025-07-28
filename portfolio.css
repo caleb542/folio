@@ -1347,7 +1347,7 @@ label.fileUpload:focus-within {
     }
     :has(.nav-toggle:checked) .lightDark{
         left:unset;
-        right:8rem;
+        left:24px;
     }
     header{
         position: fixed;
