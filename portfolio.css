@@ -1253,7 +1253,7 @@ label.fileUpload:focus-within {
     .toggle-label {
         position:relative;
         height:30px;
-        width:30px;
+        width:100%;
     }
     .toggle-label:hover{
         cursor:pointer;
