@@ -1333,7 +1333,7 @@ label.fileUpload:focus-within {
     }
     input.lightDark{
         left:unset;
-        right:-100px;
+        left: -100px;
     }
     .sunMoon{
         display:none;
