@@ -1317,6 +1317,7 @@ label.fileUpload:focus-within {
         right:-100%;
         top:0;
         width:66vw;
+        transition:0.5s;
 
     }
     nav:before{
@@ -1343,7 +1344,7 @@ label.fileUpload:focus-within {
         /* width: 100%; */
         transition: all 0.5s ;
         /* background-color: rgba(22, 122, 122, 0.5); */
-        border-radius: 0 100% 100% 0;
+        border-radius: 100% 0 0 100%;
        
     }
     :has(.nav-toggle:checked) .lightDark{
