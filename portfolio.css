@@ -1316,10 +1316,11 @@ label.fileUpload:focus-within {
         height:100vh;
         left:-100%;
         top:0;
+        width:66vw;
 
     }
     nav:before{
-        content: '';
+        /* content: ''; */
         height: 96px;
         position: absolute;
         background-color: #000;
