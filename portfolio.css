@@ -1337,9 +1337,11 @@ label.fileUpload:focus-within {
     }
 
     :has(.nav-toggle:checked) nav{
-        left:0%;
-        width:100%;
-        transition:all 0.2s;
+        left: 0%;
+        /* width: 100%; */
+        transition: all 0.2s;
+        background-color: rgba(22, 122, 122, 0.5);
+        border-radius: 0 100% 100% 0;
        
     }
     :has(.nav-toggle:checked) .lightDark{
