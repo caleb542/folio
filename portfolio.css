@@ -1367,8 +1367,8 @@ label.fileUpload:focus-within {
         padding: 0 20px 20px 20px;
     }
     nav li {
-         background: rgb(0, 98, 80);
-        /* min-width:220px; */
+        
+       padding:10px 20px;
     }
     nav li:first-child{
         /* padding-top:4rem; */
@@ -1377,6 +1377,7 @@ label.fileUpload:focus-within {
         font-size:1.5rem;
     }   
     nav li a {
+         background: rgb(0, 98, 80);
         color:#fff;
     }
     
