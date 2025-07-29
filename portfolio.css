@@ -1367,10 +1367,11 @@ label.fileUpload:focus-within {
         /* padding: 0 0 0 2rem; */
         top: 50%;
         transform: translate(0px, -50%);
-        background: red;
+       
         padding: 0 20px 20px 20px;
     }
     nav li {
+         background: rgb(0, 98, 80);
         /* min-width:220px; */
     }
     nav li:first-child{
