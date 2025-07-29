@@ -1218,7 +1218,7 @@ label.fileUpload:focus-within {
     }
     header{
         
-        padding: 2rem 4rem;
+        padding: 2rem 20px;
         /* justify-content: space-between; */
         z-index: 2;
         height:auto;
@@ -1229,8 +1229,8 @@ label.fileUpload:focus-within {
         box-shadow:0 0 2px 0 #000;
     }
     .toggle-label{
-        left:2rem;
-        padding:0.4rem 0.2rem;
+        left:0rem;
+        padding:0;
         border-radius:6px;
         display:flex;
         flex-direction:column;
@@ -1261,7 +1261,7 @@ label.fileUpload:focus-within {
     .hamburger{
         position: absolute;
         left:unset;
-        right:20px; 
+        right:0px; 
         display:flex; 
         flex-direction: column;
         gap:9px;
