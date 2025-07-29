@@ -1314,7 +1314,7 @@ label.fileUpload:focus-within {
         background:rgb(10 25 47 / 92%);
         background-blend-mode: multiply;
         height:100vh;
-        left:-100%;
+        right:-100%;
         top:0;
         width:66vw;
 
@@ -1338,7 +1338,8 @@ label.fileUpload:focus-within {
     }
 
     :has(.nav-toggle:checked) nav{
-        left: 0%;
+        left:unset;
+        right: 0%;
         /* width: 100%; */
         transition: all 0.5s ;
         /* background-color: rgba(22, 122, 122, 0.5); */
