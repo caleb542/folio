@@ -1082,7 +1082,7 @@ section.intro {
         align-items: center;
         justify-content: start;
         width:100%;
-        box-shadow:0 0 2px 0 #000;
+        /* box-shadow:0 0 2px 0 #000; */
         box-sizing: border-box;
     }
     nav{
