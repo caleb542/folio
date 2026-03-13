@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Share+Tech+Mono&family=Comfortaa:wght@700&family=Fira+Mono&family=JetBrains+Mono:wght@100;300;400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;600;800;900&family=Open+Sans:wght@300;400;500;700&family=Poppins:ital,wght@0,300;0,400;1,500&family=Red+Hat+Mono:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Share+Tech+Mono&family=Comfortaa:wght@700&family=Fira+Mono&family=JetBrains+Mono:wght@100;300;400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;600;800;900&family=Open+Sans:wght@300;400;500;700&family=Poppins:ital,wght@0,300;0,400;1,500&family=Red+Hat+Mono:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=block"
         rel="stylesheet">
     <link href="portfolio.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,15 +23,13 @@
     <div class="container" dir="ltr">
        <header>
         <a href="#container" class="skip-to-main">Skip to main</a>
-            <label tab-index="0" class="toggle-label" for="toggle">
-                <input class="nav-toggle" id="toggle" type="checkbox" aria-label="Toggle the visibility of the nav area" />
-                <div class="hamburger" popover-target="navigation">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </label>
-            <nav class="navigation" >
+        
+ <nav class="navigation" popover id="navigation">
+    <button class="hamburger .nav-toggle" popovertarget="navigation">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
                 <div class="logo">
                     <strong>
                         <a href="/"><span>C</span></a>
@@ -55,6 +53,10 @@
                         <span>.</span>
                         <a href="#experience">Experience</a>
                     </li>
+                    <li>
+                        <span>.</span>
+                        <a href="#skills">Skills</a>
+                    </li>
                    
                     <li>
                         <span>.</span>
@@ -65,16 +67,20 @@
                 </ul>
             </nav>
             <div class="light-dark-toggle-container">
+              
+                    
                     <input type="checkbox" aria-checked="false" aria-label="Toggle Light Mode" id="toggle-light-mode" class="lightDark" role="switch" />
-                    <label for="toggle-light-mode"></label>
+                   
                     <div class="sunMoon">
-                       
                         <div class="sun"></div>
                          <div class="moon"></div>
                     </div>
+
             </div>
         </header>
-        <aside>
+        
+        <main id="intro"  class="content" id="container">
+            <aside>
             <ul class="socialLinks">
                 <li>
                     <a href="https://github.com/caleb542">
@@ -88,17 +94,33 @@
                     </a>
                 </li>
             </ul>
-            <div class="email"><a href="mailto:caleb542@gmail.com" aria-label="Email me at caleb542@gmail.com">caleb542@gmail.com</a></div>
+           
+          
         </aside>
-        <main id="intro"  class="content" id="container">
-            <aside class="note">
+
+            <!-- <aside class="note">
                     ⚠️ Your browser does not yet support <code>scroll-target-group</code>. Try again in Chrome 140+.
-                </aside>
-               
+                </aside> -->
+                <div class="sections">
                 <section class="intro">
                     <div>
-                        <p class="pre">Hi,&nbsp;my name is</p>
-                        <h1 class="colo">Caleb Hamilton.</h1>
+                        <p class="pre">Hey - it&rsquo;s <strong>Hamilton</strong></p>
+                        <h1 class="colo">
+                            <span>C</span>
+                            <span>a</span>
+                            <span>l</span>
+                            <span>e</span>
+                            <span>b</span>
+                            <span>&nbsp;</span>
+                            <span>H</span>
+                            <span>a</span>
+                            <span>m</span>
+                            <span>i</span>
+                            <span>l</span>
+                            <span>t</span>
+                            <span>o</span>
+                            <span>n</span>
+</h1>
                         <p class="subtitle">I build things for the web.</p>
                         <a class="toProjects" href="#projects">View my projects</a>
                     </div>
@@ -116,44 +138,26 @@
                        
                            
                             <article class="project">
-                                     
-                      
-                                <div class="flag--updated" >new
-                                    <button  popovertarget="recipe-me-preview" >?</button>
-                                    <div popover class="project-preview" id="recipe-me-preview">
-                                        <p>Blah blah blah</p><img src="" alt="recipe-me preview">
-                                    </div>
-                                </div>
-                                <a class="project-link" href="https://recipe-me.calebhamilton.com" target="blank">
+                                <a class="project-link" href="https://recipe-me.calebhamilton.com" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
                                             <h3>Recipe Me</h3>
-
-                                            <p>Publish a recipe online.</p>
+                                            <p>A front-end recipe platform for food creators.</p>
                                         </div>
-
                                         <ul class="features">
-                                            <li>Javascript</li>
-                                            <li>MongoDb Atlas</li>
-                                            <li>Local Storage</li>
-                                            <li>Unsplash API</li>
+                                            <li>Vanilla JS</li>
+                                            <li>MongoDB Atlas</li>
+                                            <li>Auth0</li>
+                                            <li>Netlify</li>
+                                            <li>Cloudinary</li>
+                                            <li>Webpack</li>
                                         </ul>
                                     </div>
                                 </a>
                             </article>
                             <article class="project">
-                            
-                            <dialog class="project-preview" id="hangman-preview" closedBy="any">
-                                <img loading="lazy" src="./images/hm-screenshot.jpg" alt="Hangman ">
-                                <div class="preview-controls">
-                                    <a class="visit controls" href="https://hangman.calebhamilton.com">Visit</a>
-                                    <button class="controls" onclick="closeModal(this)">Close</button>
-                                </div>
-                            </dialog>
-                           
-                            <div class="flag--updated">new <button data-target="hangman" onclick="handleModal(this)">?</button></div>
-                                <a class="" href="https://hangman.calebhamilton.com" target="self">
+                                <a class="" href="https://hangman.calebhamilton.com" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
@@ -172,7 +176,7 @@
                                 </a>
                             </article>
                             <article class="project">
-                                <a class="cta" href="https://www.bruze.com" target="self">
+                                <a class="cta" href="https://www.bruze.com" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
@@ -189,7 +193,7 @@
                                 </a>
                             </article>
                              <article class="project">
-                                <a class="cta" href="https://css-logos-542.netlify.app" target="blank">
+                                <a class="cta" href="https://css-logos-542.netlify.app" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
@@ -207,7 +211,7 @@
                                 </a>
                             </article>
                             <article class="project">
-                                <a class="cta" href="https://pac.calebhamilton.com" target="self">
+                                <a class="cta" href="https://pac.calebhamilton.com" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
@@ -228,7 +232,7 @@
                             
                             <article class="project">
 
-                                <a class="" href="https://homes.calebhamilton.com" target="self">
+                                <a class="" href="https://homes.calebhamilton.com" target="_self">
                                     <i class="fas fa-up-right-from-square"></i>
                                     <div class="flex">
                                         <div>
@@ -262,19 +266,15 @@
                             </label>
                         </div>
                         
-                        <p>I’m a front end developer with over 10 years of professional experience. I spend a lot of
-                            time working on presentational aspects of web projects. That means I can do anything with
-                            HTML CSS and JAVASCRIPT whether it involves a CMS, a Framework, or complicated data sets and
-                            APIs, I do it all. Some of my recent projects were built using React, Vue, Nuxt, MySQL,
-                            MongoDb, Firebase, Firestore, Wordpress & Liferay.</p>
+                        <p>Full stack developer with twelve years delivering pixel perfect digital products in environments where things can't be broken — national telecoms, enterprise CMS, financial services.</p>
 
-                        <p>I love a challenge and I like to code in my spare time, doodling with CSS and honing my
-                            coding chops. I care a lot about usability and I have a lot of experience working at
-                            Accessibility Remediation.</p>
+                        <p>I work front-end and full cycle: interface build, CMS architecture, back-end integration, cross-browser and responsive QA, HTML email, accessibility, client management, and cross-department asset coordination.</p>
 
-                        <p> Not to shy away from a challenge I have spent a lot of time working in Linux environments
-                            performing administrative tasks. I have also worked with Maven, IntelliJ, Velocity,
-                            Freemarker, and of course I use Git.</p>
+                        <p>At Bell Canada I was auditing completed tickets for accessibility issues when I uncovered a series of interconnected failures across the entire Virgin Plus Member Benefits enrollment flow — unreachable legal disclosures that mouse and touch users would never notice, invisible only to those navigating by keyboard alone, broken focus management, and untrapped modals. Every offer on the page was effectively unusable for keyboard and screen reader users. I scoped the fixes, wrote the tickets, assigned them to myself, and saw it through to live.</p>
+
+                        <p>Currently building Recipe Me — a front-end recipe platform and a demonstration of how I work when nobody is asking me to build anything.</p>
+
+                        <p>Outside of code: musician, and a culinary background that probably explains why Recipe Me exists.</p>
         
                        
                     </div>
@@ -287,16 +287,19 @@
                     <div class="inner-container">
                          <h2>Experience</h2>
                         <article>
-                            <p><strong><a href="https://bell.ca" >Bell Canada</a></strong> &ndash; From 2023 until late 2024 I worked as a Web Producer for the Web Development Management team at Bell Canada producing marketing content for <span>Bell.ca</span>, <span>Virgin Plus</span> and <span>Lucky Mobile</span>.  A large part of this job focused on the <span>Virgin Plus Member Benefits</span> site where I managed a team of devs who created special partner deals & contests. I headed an A11y remediation project to fix broken functionality and made the Benefits pages function properly for keyboard and screen reader users. I worked hard to introduce improvements to the aging site, highlighting key areas of neglect that were in need of improvement.</p>
+                            <p><strong><a href="https://bell.ca">Bell Canada</a></strong> &ndash; Lead developer for the Virgin Plus Member Benefits microsite, supporting bell.ca and virginplus.ca — two of Canada's highest-traffic consumer websites.</p>
+                            <p>As part of my role I spent time auditing recently completed tickets for accessibility issues, testing work across the team and flagging defects for remediation. During that process I uncovered a series of interconnected failures across the entire enrollment flow.</p>
+                            <p>Every offer on the page had a "Good to Know" disclosure — legal terms covering eligibility, dates, and limitations. The anchor had no <code>href</code>, making it completely invisible to keyboard users — unreachable legal content that mouse and touch users would never notice. Beyond that, enrollment forms opened in a lightbox but focus stayed behind, and with no focus trapping, tabbing through would drop you back out into the page. Some forms contained nested modals with additional terms. None of it was managed.</p>
+                            <p>I scoped the fixes, wrote the tickets, assigned them to myself, and worked through the remediation across multiple sprints — implementing semantic modal architecture with focus trapping and focus restoration throughout the enrollment flow. Reviewed and approved by my senior developer and manager. Shipped with no issues.</p>
+                            <p>Beyond that: delivered 200+ promotional campaigns, designed and tested responsive HTML emails across 15+ clients using Litmus, conducted AODA and WCAG 2.0 audits remediating 50+ violations, and trained 8+ team members on accessibility standards and content workflows.</p>
 
-                            <br><p><strong><a href="https://bruze.com">Bruze</a></strong> &ndash; 10 Years with Bruze where I grew from a junior front-end developer to senior front-end developer. Bruze is a boutique web consultancy for whom I have worked on products large and small for finance entities such as <span>Ontario Teachers' Pension Plan</span>, <span>Russell Investments</span>, <span>McKenzie Investments</span>, <span>Franklin Templeton Investments</span>, & <span>Research In Motion</span>.</p>
-                            <p>At Bruze I honed my skills in responsive design, modern CSS and JQuery. I became an expert facilitator of Liferay CMS through which I learned to code dynamic pages with Velocity and FreeMarker, popular java templating languages.</p>
-
-                            </p>
+                            <p><strong><a href="https://bruze.com">Bruze Inc.</a></strong> &ndash; Eleven years at a digital studio building enterprise CMS platforms for clients in financial services, investment management, and technology — including <span>Ontario Teachers' Pension Plan</span>, <span>Franklin Templeton</span>, <span>Russell Investments</span>, <span>IA Clarington</span>, and <span>BlackBerry</span>.</p>
+                            <p>Built <a href="https://mypensionhub.com" target="_blank">MyPensionHub</a> (mypensionhub.com / carrefourretraite.com) — a fully bilingual English and French document and resource repository serving multiple Ontario pension organizations. A standalone LAMP stack application using PHP, Smarty templating, and a custom MySQL database. Still live today.</p>
+                            <p>Key platforms included Liferay 6.1 and 6.2 for OTPP's public corporate website and intranet, and Liferay 7 DXP for the Bruze rebrand. OTPP ultimately migrated to Adobe Experience Manager, a transition I supported through the handoff period.</p>
                         </article>
                     </div>
                 </section>
-                <section>
+                <section id="skills">
                     
                     <div class="inner-container">
                         <h2>Skills</h2>
@@ -312,23 +315,25 @@
                                     <li>SASS</li>
                                     <li>SCSS</li>
                                     <li>Bootstrap</li>
-                                    <li>
-                                        Modern JavaScript (ES6)</li>
+                                    <li>Modern JavaScript (ES6)</li>
                                     <li>jQuery</li>
                                     <li>React</li>
-                                    <li>Vue
-                                        Webpack</li>
-                                    <li>Babel
-                                        AJAX</li>
-                                    <li>JSONHighcharts</li>
-                                    <li>GreenSock</li>
-                                    <li>TweenLite</li>
+                                    <li>Vue</li>
+                                    <li>Webpack</li>
+                                    <li>Babel</li>
+                                    <li>AJAX</li>
+                                    <li>JSON</li>
+                                    <li>Highcharts</li>
+                                    <li>Node.js</li>
+                                    <li>Auth0</li>
+                                    <li>Netlify</li>
+                                    <li>Cloudinary</li>
+                                    <li>GreenSock (GSAP)</li>
                                     <li>FreeMarker</li>
                                     <li>Velocity</li>
-                                    <li>Smarty
-                                    </li>
-                                    <li>
-                                        HTML Email</li>
+                                    <li>Smarty</li>
+                                    <li>HTML Email</li>
+                                    <li>Litmus</li>
                                 </ul>
                                 <h4>
                                     Server Side
@@ -337,26 +342,30 @@
                                     <li>MySQL</li>
                                     <li>PHP</li>
                                     <li>JSP</li>
+                                    <li>Node.js</li>
                                 </ul>
                                 <h4>
                                     CMS & Software
                                 </h4>
                                 <ul>
-
                                     <li>Liferay Portal 6.1</li>
-                                    <li>6.2</li>
-                                    <li>7.3</li>
+                                    <li>Liferay Portal 6.2</li>
+                                    <li>Liferay 7 DXP</li>
                                     <li>WordPress</li>
-
+                                    <li>Adobe Experience Manager</li>
                                 </ul>
 
                                 <h4>
-                                    SCREEN READER TESTING
+                                    ACCESSIBILITY
                                 </h4>
                                 <ul>
+                                    <li>AODA</li>
+                                    <li>WCAG 2.0</li>
+                                    <li>WCAG 2.1</li>
                                     <li>JAWS</li>
                                     <li>NVDA</li>
-                                    <li>Chromevox</li>
+                                    <li>ChromeVox</li>
+                                    <li>Siteimprove</li>
                                 </ul>
 
                                 <h4>
@@ -371,20 +380,27 @@
 
                                 </ul>
                                 <h4>
+                                    ANALYTICS & TOOLS
+                                </h4>
+                                <ul>
+                                    <li>GA4</li>
+                                    <li>Google Tag Manager</li>
+                                    <li>Figma</li>
+                                    <li>Adobe XD</li>
+                                </ul>
+
+                                <h4>
                                     COLLABORATION & TICKETING
                                 </h4>
-
                                 <ul>
-                                    <li>
-                                        Code repositories: GIT</li>
-                                    <li>Subversion
-                                        JIRA</li>
+                                    <li>Git</li>
+                                    <li>Subversion</li>
+                                    <li>JIRA</li>
                                     <li>Confluence</li>
                                     <li>Slack</li>
                                     <li>Codebase</li>
-                                    <li>Slack</li>
-                                    <li>Sirportly
-                                        Dropbox</li>
+                                    <li>Sirportly</li>
+                                    <li>Dropbox</li>
                                     <li>Google Sheets</li>
                                     <li>Google Calendar</li>
                                     <li>Google Docs</li>
@@ -409,20 +425,15 @@
 
 
                                 <h4>
-                                    UX, IMAGE & OFFICE SOFTWARE
+                                    IMAGE & OFFICE SOFTWARE
                                 </h4>
                                 <ul>
-                                    <li>
-
-
-                                        Photoshop</li>
+                                    <li>Photoshop</li>
                                     <li>Illustrator</li>
-                                    <li>Adobe XD</li>
                                     <li>Acrobat</li>
                                     <li>Inkscape</li>
                                     <li>MS Word</li>
-                                    <li>MS Excel </li>
-
+                                    <li>MS Excel</li>
                                 </ul>
 
 
@@ -474,6 +485,12 @@
                         </article>
                     </div>
                 </section>
+               
+
+                </div>
+                <!-- <aside>
+                    <div class="email"><a href="mailto:caleb542@gmail.com" aria-label="Email me at caleb542@gmail.com">caleb542@gmail.com</a></div>  
+                </aside> -->
             </main>
             <footer>
 
