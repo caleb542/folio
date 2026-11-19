@@ -1139,7 +1139,7 @@ input[type="file"]::file-selector-button:focus-visible {
     outline: 1px solid #323761;
     border-radius: 6px;
 }
-.form-dialog button {
+#form-dialog button {
     color: var(--form-buttons-txt);
     background-color: var(--form-buttons-bg);
     border: 0;
