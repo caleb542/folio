@@ -20,6 +20,107 @@
 
 <body>
 
+<!-- Shared SVG filters (no visible size). Referenced by url(#id) from the layers below. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- "ink": wobbles edges with noise so flat shapes look hand-inked -->
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="inkS" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="5" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- "paper": grows the silhouette into a rough white cut edge, then adds a soft drop shadow.
+         Used for pieces lying close to the backdrop (figure, hydrant, mantis). -->
+    <filter id="paper" x="-25%" y="-20%" width="150%" height="150%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="8" result="grown"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="grown" in2="n" scale="12" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feFlood flood-color="#fffaf0" result="white"/>
+      <feComposite in="white" in2="rough" operator="in" result="edge"/>
+      <feGaussianBlur in="rough" stdDeviation="6" result="blur"/>
+      <feOffset in="blur" dx="8" dy="12" result="off"/>
+      <feFlood flood-color="#000" flood-opacity=".35" result="black"/>
+      <feComposite in="black" in2="off" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="edge"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- "paperHi": same cut edge but a larger, softer shadow, so pieces that sit
+         on top of the figure (lips, hat, mantis head) read as raised higher off the page -->
+    <filter id="paperHi" x="-30%" y="-30%" width="170%" height="170%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="grown"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="17" result="n"/>
+      <feDisplacementMap in="grown" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feFlood flood-color="#fffaf0" result="white"/>
+      <feComposite in="white" in2="rough" operator="in" result="edge"/>
+      <feGaussianBlur in="rough" stdDeviation="10" result="blur"/>
+      <feOffset in="blur" dx="14" dy="22" result="off"/>
+      <feFlood flood-color="#000" flood-opacity=".4" result="black"/>
+      <feComposite in="black" in2="off" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="edge"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- "paperS": thin cut edge and a short shadow, for small stickers that sit on the face -->
+    <filter id="paperS" x="-30%" y="-40%" width="160%" height="190%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="grown"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="grown" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feFlood flood-color="#fffaf0" result="white"/>
+      <feComposite in="white" in2="rough" operator="in" result="edge"/>
+      <feGaussianBlur in="rough" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="4" dy="6" result="off"/>
+      <feFlood flood-color="#000" flood-opacity=".35" result="black"/>
+      <feComposite in="black" in2="off" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="edge"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- paper grain: fine speckle noise laid over the whole stage -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 .3  0 0 0 0 .22  0 0 0 0 .12  0 0 0 1.4 -.45"/>
+    </filter>
+
+    <!-- guitar, drawn upright (neck up) around x 820. Each scene rotates/places it with a transform on a <use>. -->
+    <g id="guitar" stroke="#1b1a2e" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M810 300 H830 V452 H810 Z" fill="#4a2f1b"/>
+      <path d="M804 270 H836 L834 306 H806 Z" fill="#4a2f1b"/>
+      <path d="M810 330 h20 M810 360 h20 M810 390 h20 M810 420 h20" stroke="#d8c9a0" stroke-width="2" fill="none"/>
+      <path d="M820 448 C850 448 862 478 850 496 C885 504 888 560 878 584 C868 632 772 632 762 584 C752 560 755 504 790 496 C778 478 790 448 820 448 Z" fill="#d9944a"/>
+      <circle cx="820" cy="552" r="17" fill="#1b1a2e"/>
+      <path d="M798 598 H842" stroke-width="8" fill="none"/>
+    </g>
+
+    <!-- head, drawn once and reused by the standing-figure head layer and the seated rider. Head centre (800, 300). Original drawing. -->
+    <!-- <g id="head" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="800" cy="300" rx="52" ry="62" fill="#f2c9a5"/>
+      <path d="M779 215 C775 217 768 220 764 223 C759 226 756 226 751 232 C746 237 739 249 736 255 C733 260 732 260 732 264 C731 267 733 273 732 276 C732 279 729 281 728 283 C727 285 727 286 726 288 C726 290 726 292 726 295 C727 297 730 300 729 304 C728 309 722 318 721 321 C719 325 719 324 720 326 C721 327 725 330 726 333 C728 335 729 338 730 341 C730 343 731 343 730 346 C728 348 724 353 723 356 C722 359 722 359 723 362 C724 365 728 369 729 373 C730 376 730 380 731 385 C732 391 734 400 735 405 C737 409 739 411 741 413 C742 414 743 415 744 416 C745 416 745 416 746 416 C746 415 747 416 747 413 C746 410 744 405 744 400 C744 396 743 390 744 386 C745 382 751 380 751 376 C751 373 745 370 745 367 C745 363 751 359 750 356 C750 353 744 349 744 346 C744 343 747 342 748 338 C749 335 749 327 750 324 C751 321 751 324 753 320 C755 316 759 306 762 301 C764 297 768 296 769 293 C769 290 766 286 766 284 C766 282 768 284 769 281 C771 279 774 271 775 268 C777 265 778 264 779 263 C780 263 780 263 781 265 C781 266 782 269 783 272 C783 275 784 282 784 284 C784 286 784 285 785 286 C786 286 786 287 788 286 C789 285 791 284 794 280 C797 276 802 266 807 263 C812 260 820 262 824 262 C828 262 828 263 830 264 C831 265 833 267 834 269 C834 271 835 270 834 274 C834 278 831 288 831 293 C831 297 832 297 833 299 C833 300 836 299 836 302 C836 304 833 309 834 312 C834 315 838 315 838 320 C838 324 834 334 833 340 C833 346 832 349 836 355 C839 362 850 370 853 379 C855 389 850 409 850 415 C850 421 851 416 852 416 C853 415 853 416 854 413 C856 409 858 399 860 396 C861 393 862 394 863 392 C865 391 869 390 870 389 C872 387 874 384 875 383 C875 381 875 380 875 378 C874 376 871 372 870 370 C869 368 870 366 870 364 C870 362 871 360 872 357 C873 354 877 351 878 349 C880 346 879 345 879 342 C880 340 880 335 879 333 C879 331 878 331 877 330 C876 329 875 329 874 329 C873 328 873 330 873 327 C872 324 874 316 873 312 C871 308 867 308 865 303 C863 299 861 292 860 286 C859 279 861 270 860 264 C860 258 858 254 857 250 C856 246 854 243 852 240 C850 237 849 235 846 232 C844 230 840 226 837 224 C834 221 831 220 828 218 C824 217 820 215 816 214 C812 213 808 212 803 212 C799 212 792 212 788 213 C784 213 783 213 779 215 Z" fill="#2a1b1b"/>
+    </g> -->
+    <!-- new head: #head is the full drawing (face + curls); #headCut is a solid cream silhouette of it that gets the paper edge and shadow.
+         Same x/y/size so they register. Files live in the theme's assets/ folder. -->
+    <!-- <g id="head"><image href="<?php echo esc_url( get_theme_file_uri( 'assets/ron-head-2-mid.png' ) ); ?>" x="700" y="163" width="200" height="240"/></g>
+    <g id="headCut"><image href="<?php echo esc_url( get_theme_file_uri( 'assets/ron-head-2-cut.png' ) ); ?>" x="700" y="163" width="200" height="240"/></g> -->
+    <path id="lipsP" d="M760 340 C780 318 795 322 800 332 C805 322 820 318 840 340 C825 366 775 366 760 340 Z"
+          fill="#d62a4a" stroke="#1b1a2e" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- red and white horizontal stripes for her top (used as a fill on the body and as a stroke on the sleeves) -->
+    <pattern id="stripes" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#fffaf0"/><rect width="20" height="10" fill="#c43a4c"/>
+    </pattern>
+
+    <!-- reusable shapes -->
+    <path id="cloud" d="M40 120 C-10 120 -10 55 45 60 C55 5 135 -5 170 40 C205 15 270 35 262 85 C320 85 320 120 270 120 Z"
+          fill="#4b5a7a" stroke="#1b1a2e" stroke-width="4" stroke-linejoin="round"/>
+    <path id="star" d="M0 -40 Q4 -4 40 0 Q4 4 0 40 Q-4 4 -40 0 Q-4 -4 0 -40Z"
+          fill="#2f8f4e" stroke="#1b1a2e" stroke-width="3" stroke-linejoin="round"/>
+  </defs>
+</svg>
 
    
 
@@ -432,38 +533,43 @@
                     <div class="inner-container">
                         <article>
 
-                            <form name="contact" method="POST" data-netlify="true">
-                                <div>
-                                    <label for="name">Your Name: </label>
-                                    <input type="text" name="name" required />
+<form name="contact" method="POST" enctype="multipart/form-data"
+      data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+    <p class="hp" aria-hidden="true">
+        <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+    </p>
 
-                                    <label for="email" required>Your Email: </label>
-                                    <input type="email" name="email" />
+    <div>
+        <label for="name">Your Name: </label>
+        <input type="text" id="name" name="name" required />
 
-                                    <label for="role">
-                                        Your Role:</label>
-                                    <select name="role[]" multiple>
-                                        <option value="Owner / Operator">Owner / Operator</option>
-                                        <option value="hiring manager">Hiring manager</option>
-                                        <option value="recruiter">Recruiter</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <label>Upload a file</label>
-                                    <label class="fileUpload" for="file">
-                                        <input id="file" name="file" type="file" />
-                                    </label>
-                                    <div></div>
-                                    <div class="field">
-                                        <div data-netlify-recaptcha="true">
-                                        </div>
-                                    </div>
-                                    <label for="" message>Message:</label>
-                                    <textarea name="message"></textarea>
-                                </div>
+        <label for="email">Your Email: </label>
+        <input type="email" id="email" name="email" required />
 
-                                <button class="submit" type="submit">Send</button>
+        <label for="role">Your Role:</label>
+        <select id="role" name="role[]" multiple>
+            <option value="Owner / Operator">Owner / Operator</option>
+            <option value="hiring manager">Hiring manager</option>
+            <option value="recruiter">Recruiter</option>
+            <option value="other">Other</option>
+        </select>
 
-                            </form>
+        <label>Upload a file</label>
+        <label class="fileUpload" for="file">
+            <input id="file" name="file" type="file" />
+        </label>
+
+        <div class="field">
+            <div data-netlify-recaptcha="true"></div>
+        </div>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+    </div>
+
+    <button class="submit" type="submit">Send</button>
+</form>
 
                         </article>
                     </div>
@@ -501,7 +607,13 @@
           
 
     </div>
-
+<dialog id="form-dialog" aria-labelledby="form-dialog-title" aria-describedby="form-dialog-text">
+    <h3 id="form-dialog-title"></h3>
+    <p id="form-dialog-text"></p>
+    <form method="dialog">
+        <button type="submit">Close</button>
+    </form>
+</dialog>
     <script>
         let date = new Date();
         const year = date.getFullYear();
@@ -530,6 +642,49 @@
         }
         handler()
     </script>
+    <script>
+(() => {
+    const form = document.querySelector('form[name="contact"]');
+    const dialog = document.getElementById('form-dialog');
+    if (!form || !dialog) return;
+
+    const title = document.getElementById('form-dialog-title');
+    const text = document.getElementById('form-dialog-text');
+    const submit = form.querySelector('button[type="submit"]');
+
+    function showDialog(heading, message) {
+        title.textContent = heading;
+        text.textContent = message;
+        dialog.showModal();
+    }
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+
+        if (!data.get('g-recaptcha-response')) {
+            showDialog('One more step', 'Please complete the reCAPTCHA check before sending.');
+            return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+
+        try {
+            const response = await fetch('/', { method: 'POST', body: data });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            form.reset();
+            if (window.grecaptcha) grecaptcha.reset();
+            showDialog('Message sent', 'Thanks, your message was sent.');
+        } catch (error) {
+            showDialog('Message not sent', 'Something went wrong. Please try again, or email caleb542@gmail.com directly.');
+        } finally {
+            submit.disabled = false;
+            submit.textContent = 'Send';
+        }
+    });
+})();
+</script>
 </body>
 
 </html>
